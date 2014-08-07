@@ -15,26 +15,9 @@
  */
 function get_importers() {
 	global $wp_importers;
-	if ( is_array( $wp_importers ) ) {
-		uasort( $wp_importers, '_usort_by_first_member' );
-	}
+	if ( is_array($wp_importers) )
+		uasort($wp_importers, create_function('$a, $b', 'return strcmp($a[0], $b[0]);'));
 	return $wp_importers;
-}
-
-/**
- * Sorts a multidimensional array by first member of each top level member
- *
- * Used by uasort() as a callback, should not be used directly.
- *
- * @since 2.9.0
- * @access private
- *
- * @param array $a
- * @param array $b
- * @return int
- */
-function _usort_by_first_member( $a, $b ) {
-	return strnatcasecmp( $a[0], $b[0] );
 }
 
 /**
@@ -125,10 +108,10 @@ function wp_get_popular_importers() {
 	$popular_importers = get_site_transient( 'popular_importers_' . $locale );
 
 	if ( ! $popular_importers ) {
-		$url = add_query_arg( 'locale', get_locale(), 'http://api.wordpress.org/core/importers/1.1/' );
+		$url = add_query_arg( 'locale', get_locale(), 'http://api.wordpress.org/core/importers/1.0/' );
 		$options = array( 'user-agent' => 'WordPress/' . $wp_version . '; ' . home_url() );
 		$response = wp_remote_get( $url, $options );
-		$popular_importers = json_decode( wp_remote_retrieve_body( $response ), true );
+		$popular_importers = maybe_unserialize( wp_remote_retrieve_body( $response ) );
 
 		if ( is_array( $popular_importers ) )
 			set_site_transient( 'popular_importers_' . $locale, $popular_importers, 2 * DAY_IN_SECONDS );

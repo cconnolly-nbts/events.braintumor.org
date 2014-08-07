@@ -9,7 +9,7 @@
  */
 
 /** WordPress Administration Bootstrap */
-require_once( dirname( __FILE__ ) . '/admin.php' );
+require_once('./admin.php');
 
 $parent_file = 'edit.php';
 $submenu_file = 'edit.php';
@@ -66,18 +66,12 @@ function redirect_post($post_id = '') {
 		$location = add_query_arg( 'message', 3, wp_get_referer() );
 		$location = explode('#', $location);
 		$location = $location[0] . '#postcustom';
+	} elseif ( 'post-quickpress-save-cont' == $_POST['action'] ) {
+		$location = "post.php?action=edit&post=$post_id&message=7";
 	} else {
 		$location = add_query_arg( 'message', 4, get_edit_post_link( $post_id, 'url' ) );
 	}
 
-	/**
-	 * Filter the post redirect destination URL.
-	 *
-	 * @since 2.9.0
-	 *
-	 * @param string $location The destination URL.
-	 * @param int    $post_id  The post ID.
-	 */
 	wp_redirect( apply_filters( 'redirect_post_location', $location, $post_id ) );
 	exit;
 }
@@ -102,39 +96,32 @@ if ( ! $sendback ||
 }
 
 switch($action) {
-case 'post-quickdraft-save':
-	// Check nonce and capabilities
-	$nonce = $_REQUEST['_wpnonce'];
-	$error_msg = false;
-
-	// For output of the quickdraft dashboard widget
-	require_once ABSPATH . 'wp-admin/includes/dashboard.php';
-
-	if ( ! wp_verify_nonce( $nonce, 'add-post' ) )
-		$error_msg = __( 'Unable to submit this form, please refresh and try again.' );
-
-	if ( ! current_user_can( 'edit_posts' ) )
-		$error_msg = __( 'Oops, you don&#8217;t have access to add new drafts.' );
-
-	if ( $error_msg )
-		return wp_dashboard_quick_press( $error_msg );
-
-	$post = get_post( $_REQUEST['post_ID'] );
-	check_admin_referer( 'add-' . $post->post_type );
-
-	$_POST['comment_status'] = get_option( 'default_comment_status' );
-	$_POST['ping_status'] = get_option( 'default_ping_status' );
-
-	edit_post();
-	wp_dashboard_quick_press();
-	exit;
-	break;
-
 case 'postajaxpost':
 case 'post':
-	check_admin_referer( 'add-' . $post_type );
-	$post_id = 'postajaxpost' == $action ? edit_post() : write_post();
-	redirect_post( $post_id );
+case 'post-quickpress-publish':
+case 'post-quickpress-save':
+	check_admin_referer('add-' . $post_type);
+
+	if ( 'post-quickpress-publish' == $action )
+		$_POST['publish'] = 'publish'; // tell write_post() to publish
+
+	if ( 'post-quickpress-publish' == $action || 'post-quickpress-save' == $action ) {
+		$_POST['comment_status'] = get_option('default_comment_status');
+		$_POST['ping_status'] = get_option('default_ping_status');
+		$post_id = edit_post();
+	} else {
+		$post_id = 'postajaxpost' == $action ? edit_post() : write_post();
+	}
+
+	if ( 0 === strpos( $action, 'post-quickpress' ) ) {
+		$_POST['post_ID'] = $post_id;
+		// output the quickpress dashboard widget
+		require_once(ABSPATH . 'wp-admin/includes/dashboard.php');
+		wp_dashboard_quick_press();
+		exit;
+	}
+
+	redirect_post($post_id);
 	exit();
 	break;
 
@@ -208,7 +195,7 @@ case 'edit':
 		enqueue_comment_hotkeys_js();
 	}
 
-	include( ABSPATH . 'wp-admin/edit-form-advanced.php' );
+	include('./edit-form-advanced.php');
 
 	break;
 
@@ -309,7 +296,7 @@ case 'delete':
 	break;
 
 case 'preview':
-	check_admin_referer( 'update-post_' . $post_id );
+	check_admin_referer( 'autosave', 'autosavenonce' );
 
 	$url = post_preview();
 
@@ -322,4 +309,4 @@ default:
 	exit();
 	break;
 } // end switch
-include( ABSPATH . 'wp-admin/admin-footer.php' );
+include('./admin-footer.php');

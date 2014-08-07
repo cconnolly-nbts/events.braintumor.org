@@ -27,7 +27,7 @@ $(document).ready(function(){
 <div id="titleBar"><div class="titleContainer"><div class="spacer">
 
 
-<h2>Particpant or Team Search Results for "<?php if (isset ($_POST['first_name'])) { echo $_POST['first_name']; }; ?>
+<h2>Participant or Team Search Results for "<?php if (isset ($_POST['first_name'])) { echo $_POST['first_name']; }; ?>
 <?php if (isset ($_POST['last_name'])) { echo $_POST['last_name']; }; ?>
 <?php if (isset ($_POST['team_name'])) { echo $_POST['team_name']; }; ?>"</h2>
 </div>

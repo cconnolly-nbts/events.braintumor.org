@@ -78,7 +78,7 @@ $registrations = $tr_xml->teamraiser->accepting_registrations;
 <script async type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/luminateFunctions.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cycle.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.isotope.js"></script>
-<script  async type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.cookie.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -157,11 +157,7 @@ gigya.socialize.showShareBarUI(showFootShareBarUI_params);
 <div id="siteHeader" class="cf">
 
 <?php 
-if ($post->post_type != "events"){ ?>
-<div class="login-social" style="float: right; padding: 5px 10px 0 0;"><a class="pure-button registerButton" style="color: #fff !important;" href="/events-list">VIEW ALL EVENTS</a></div>
-<?php }
-
-elseif ( ($fr_id != 'kimbia') && ($fr_id != 'artez') ){ ?>
+if (($fr_id != 'kimbia') && ($fr_id != 'artez')){ ?>
 <div class="login-help">Login to your Participant center here:</div>
 <div class="login-social" style="float: right; padding: 5px 10px 0 0;">
 <div id="componentDiv" style="float: left;"></div>

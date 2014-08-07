@@ -24,7 +24,7 @@ function include_post($catID,$content,$title){
 		}	
 	}
 
-	if (isset($exclude) && $exclude==1) {
+	if ($exclude==1) {
 		($msg==1 ? $msg=0 :$msg=1);		
 	}
 
@@ -200,39 +200,13 @@ function rssmi_html_tags($str){
 
 
 
-function rssmi_strip_read_more($content){
-	
-	$read_more_list = array(
-	 'Read more',
-	'Read Full Story',
-	'Read full story',
-	'Continue reading',
-	'Continue reading...'
-	 );
-	 return preg_replace(
-	  '#(<a.*?>)'. implode('|', $read_more_list) .'(</a>)#',
-	  '',
-	  $content);
-	
-}
-
-
-
-
-
-
-
-
-
-
 function showexcerpt($content, $maxchars,$openWindow,$stripAll,$thisLink,$adjustImageSize,$float,$noFollow,$mediaImage,$catID=0,$stripSome=0,$feedHomePage=Null)  //show excerpt function
 	{
 
-	$content=	rssmi_strip_read_more($content);
-	
+		
 	global $ftp;	
 	global $morestyle;
-    $content=RSSMI_CleanHTML($content,$thisLink);
+    $content=CleanHTML($content,$thisLink);
 
 
 
@@ -241,8 +215,8 @@ function showexcerpt($content, $maxchars,$openWindow,$stripAll,$thisLink,$adjust
 			$content= limitwords($maxchars,$content);	
 	}else{
 			if ($ftp==1){
-			//	$content=html_entity_decode(pre_esc_html($content));
-				$content=html_entity_decode(pre_esc_html($content), ENT_QUOTES,'UTF-8');
+				$content=html_entity_decode(pre_esc_html($content));
+			//	$content=html_entity_decode(pre_esc_html($content), ENT_QUOTES,'UTF-8');
 			//	$content=pre_esc_html($content);
 			}else{				
 				if($maxchars !=99){
@@ -310,7 +284,7 @@ if ($noFollow==1){
 	
 	
 	
-	function RSSMI_CleanHTML($content,$thisLink){
+	function CleanHTML($content,$thisLink){
 	
 		$content=str_replace("&nbsp;&raquo;", "", $content);
 		$content=str_replace("&nbsp;", " ", $content);
@@ -374,32 +348,6 @@ if ($noFollow==1){
 
 
 
-
-		preg_match_all('#<img.*src=(.*)(\.ico)(.*)\/?>#', $content, $matches);  //get all links
-			
-		foreach ($matches[0] as $val) {
-		
-						$content = str_replace($val, '', $content);  //clean rss embedded share links and bugs
-				
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return 	$content;
 	}
 	
@@ -425,35 +373,18 @@ if ($noFollow==1){
 	
 	
 	
-	
-	
 	function joinContent($content,$adjustImageSize,$imagefix,$float,$anchorLink,$maxchars,$mediaImage,$leadMatch,$thisLink,$stripSome){
 		global $ftp;
 		global $setFeaturedImage;
 		global $featuredImage;
 		
-		
-		//facebook correction
-		preg_match('@src="([^"]+)"@', $mediaImage, $match);
-		if (strpos($match[1],"fbcdn")>0){
-			$fb_img=$match[1];
-			$fb_img = str_replace('_s.jpg', '_n.jpg', $match[1]);
-				if (rssmi_remoteFileExists($fb_img)){
-					$mediaImage = str_replace($match[1], $fb_img, $mediaImage);
-				}
-		}
-	
 
 		
-	
-		
-		if ($adjustImageSize==1  && $ftp==1){
+		if ($adjustImageSize==1){
+
 			$mediaImage=resize_image($mediaImage);
-		}elseif ($adjustImageSize==1  && $ftp!=1){
-			$mediaImage=rssmi_resize_image_for_shortcode($mediaImage);	
 		}
 		
-
 	
 		
 		if ($stripSome==1 && $ftp==1){
@@ -566,7 +497,6 @@ if ($noFollow==1){
 
 
 
-
 	$catImageArray= getDefaultCatImage($catID);
 	
 	//var_dump($catImageArray);
@@ -591,8 +521,6 @@ if ($noFollow==1){
 		$mediaImage = $matches[2];
 		$featuredImage = preg_replace('#.*src="([^\"]+)".*#', '\1', $matches[2]);
 		$content=joinContent($content,$adjustImageSize,$imagefix,$float,$anchorLink,$maxchars,$mediaImage,$leadMatch,$thisLink,$stripSome);
-		
-	
 	
 	}else if (!IS_Null($mediaImage) && verifyimage($mediaImage)==True){  //  match media enclosure image if it exists
 
@@ -603,7 +531,7 @@ if ($noFollow==1){
 			
 	}else if (isset($leadMatch) && $leadMatch==3 && intval($anyimage)==1){
 
-
+		
 		$mediaImage=$matches[2];	
 		$featuredImage = preg_replace('#.*src="([^\"]+)".*#', '\1', $matches[2]);
 		$content=joinContent($content,$adjustImageSize,$imagefix,$float,$anchorLink,$maxchars,$mediaImage,$leadMatch,$thisLink,$stripSome);
@@ -629,8 +557,7 @@ if ($noFollow==1){
 				}
 			}		
 		}
-
-	
+			
 	return $content;
 		
 	}
@@ -640,8 +567,6 @@ if ($noFollow==1){
 	
 	function verifyimage($imageURL) {
 		$imageURL = preg_replace('/\?.*/', '', $imageURL);
-		
-
 
 	    if( preg_match('#^(http|https):\/\/(.*)\.(gif|png|jpg|jpeg|dhtml)$#i', $imageURL)  || strpos($imageURL,"gstatic")>0)
 	    {
@@ -696,15 +621,6 @@ if ($noFollow==1){
 			}
 		}
 	}
-
-
-	function rssmi_resize_image_for_shortcode($imghtml){
-		global $maximgwidth;
-
-		return str_replace("<img", "<img width=\"".$maximgwidth."\"", remove_img_hw($imghtml));		
-		
-	}
-
 
 
 	function rssmi_remoteFileExists($url) {

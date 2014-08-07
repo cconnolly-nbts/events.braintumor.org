@@ -75,9 +75,9 @@ if (($registrations && $registrations == 'false') || ('events' == get_post_type(
 
 <?php 
 if (($fr_id == 'kimbia')){ ?>
-<a class="registerButton pure-button" style="background-color:#7BC143;" href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/registration/"><strong>REGISTER</strong> TO WALK</a>
-<a class="donateButton pure-button" style="background-color:#F47B29;" href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/find-a-particpant/"><strong>DONATE</strong> TO A PARTICIPANT</a>
-<a class="signupButton pure-button" href="/events/<?php global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/volunteer-registration/"><strong>SIGN UP</strong> TO VOLUNTEER</a>
+<a class="registerButton pure-button" style="background-color:#7BC143;" href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/registration/"><strong>REGISTER</strong> TO WALK</a>
+<a class="donateButton pure-button" style="background-color:#F47B29;" href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/find-a-particpant/"><strong>DONATE</strong> TO A PARTICIPANT</a>
+<a class="signupButton pure-button" href="http://events.braintumor.org/events/<?php global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/volunteer-registration/"><strong>SIGN UP</strong> TO VOLUNTEER</a>
 
 <?php } ?>
 
@@ -233,6 +233,7 @@ $loop4 = new WP_Query( 'post_type=partners&orderby=title&order=asc&event_associa
 
 <?php 
 if (($fr_id == 'kimbia')){ ?>
+<p><center><strong>Scroll To View All Teams</strong></center></p>
 <h3 style="font-size: 1.17em; color:#00A0DF; margin:20px 0px;">TOP FUNDRAISERS</h3>
 <div class="widget">
 <!-- Team Status -->
@@ -240,7 +241,7 @@ if (($fr_id == 'kimbia')){ ?>
 </div>
 
 <div class="widget" style="margin-bottom:30px;">
-<a href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-teams/">VIEW ALL TEAMS</a>
+<a href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-teams/">VIEW ALL TEAMS</a>
 </div>
 
 <div id="participants">
@@ -249,7 +250,7 @@ if (($fr_id == 'kimbia')){ ?>
 </div>
 
 <div class="widget" style="margin-bottom:50px;">
-<a href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-participant">VIEW ALL PARTICIPANTS</a>
+<a href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-participant">VIEW ALL PARTICIPANTS</a>
 </div>
 
 <div class="widget">
@@ -257,7 +258,15 @@ if (($fr_id == 'kimbia')){ ?>
 </div>
 
 </div>
+<?php 
+if ($custom_value = get_post_meta(get_the_ID(), 'honor_roll', true) );{ ?>
+<script src='https://widgets.kimbia.com/widgets/status.js?id=<?php echo $custom_value; ?>'></script>
+
 <?php } ?>
+
+<?php } ?>
+
+
 
 
 <?php 
@@ -308,7 +317,7 @@ if (($fr_id == 'artez' && $sortKeyPrimary == true)){ ?>
            }
 ?>
 <p style="font-size: 15px !important; padding-bottom:15px;">
-<a href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/team-list/">View all teams</a>
+<a href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/team-list/">View all teams</a>
 </p>
 
 <!--<iframe style="padding:0;"  src="http://my.e2rm.com/api/scoreboard.aspx?eventid=148005&locationid=148006&scoreboardtype=ind" frameborder="0" allowtransparency="true" seamless="seamless" scrolling="no" id="top-fundraisers" class="ie-frame"></iframe> -->
@@ -335,7 +344,7 @@ if (($fr_id == 'artez' && $sortKeyPrimary == true)){ ?>
            }
 ?>
 <p style="font-size: 15px !important; padding-bottom:15px;">
-<a href="/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-participants/">View all participants</a>
+<a href="http://events.braintumor.org/events/<?php  global $post; if($post->post_parent) { $post_data = get_post($post->post_parent); echo $post_data->post_name; } else {echo $post->post_name;}?>/top-participants/">View all participants</a>
 </p>
 <?php } 
 

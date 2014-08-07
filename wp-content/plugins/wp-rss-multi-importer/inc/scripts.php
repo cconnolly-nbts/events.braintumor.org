@@ -26,27 +26,11 @@ echo '<meta name="robots" content="noindex, nofollow">';
 }
 
 
-function rssmi_canonical_function(){
-	
-		global $wp_query;
-		$postID=$wp_query->post->ID;
-		$myLink = get_post_meta($postID, 'rssmi_source_link' , true);
-			if (!empty($myLink) && !is_front_page()  ){
-				
-	echo '<link rel="canonical" href="'.$myLink.'"/>';
-	}			
-}
 
 
 
 
-/*
-
-Load more scripts
-
-*/
-
-function rssmi_pbd_alp_init($max,$paged,$nextPost,$imageURL,$pag) {
+function pbd_alp_init($max,$paged,$nextPost,$imageURL,$pag) {
 
  	// Add code to index pages.
  		// Queue JS and CSS
@@ -85,14 +69,16 @@ function wprssmi_register_scripts() {
  global $wp_version;
 
 if ( version_compare($wp_version, "3.3.1", ">" ) ) {  
- 		wp_enqueue_script( 'jquery' );
-	} else {	
-		wp_deregister_script( 'jquery' );
-    	wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
-    	wp_enqueue_script( 'jquery' );	
-	}
+ 	wp_enqueue_script( 'jquery' );
+} else {	
+	wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    wp_enqueue_script( 'jquery' );	
+}
   wp_enqueue_script( 'add-remove', plugins_url('scripts/add-remove.js',dirname(__FILE__)),array('jquery'));
   wp_localize_script( 'add-remove', 'add_remove_parms', wprssmi_localize_vars());
+ //wp_enqueue_script( 'bpopup', plugins_url('scripts/jquery.bpopup-0.7.0.min.js',dirname(__FILE__)),array('jquery'));  //adds pop-up ability
+
 }
 
 
@@ -169,6 +155,7 @@ function colorbox_scripts(){
 	wp_enqueue_style( 'wprssmi_colorbox', plugins_url( 'css/colorbox.css', dirname(__FILE__)) );
     wp_enqueue_script( 'jquery.colorbox-min', plugins_url( 'scripts/jquery.colorbox-min.js', dirname(__FILE__)) );
  wp_enqueue_script( 'wprssmi_detect_mobile', plugins_url( 'scripts/detect-mobile.js', dirname(__FILE__)) );
+	//echo "<script type='text/javascript'>jQuery(document).ready(function(){ jQuery('a.colorbox').colorbox({iframe:true, width:'80%', height:'80%'})});</script>";	
 	echo "<script type='text/javascript'>jQuery(document).ready(function(){ jQuery('a.colorbox').colorbox({iframe:true, width:'80%', height:'80%'});jQuery('a.rssmi_youtube').colorbox({iframe:true, innerWidth:425, innerHeight:344});jQuery('a.rssmi_vimeo').colorbox({iframe:true, innerWidth:500, innerHeight:409})});</script>";	
 	
 }

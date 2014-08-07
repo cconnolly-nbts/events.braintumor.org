@@ -1,10 +1,10 @@
 <?php
 /*  Plugin Name: RSS Multi Importer
-  Plugin URI: http://www.wprssimporter.com/
-  Description: All-in-one solution for importing & merging multiple feeds. Make blog posts or display on a page, excerpts w/ images, 13 templates, categorize and more. 
-  Version: 2.67.67
+  Plugin URI: http://www.allenweiss.com/wp_plugin
+  Description: All-in-one solution for importing & merging multiple feeds. Make blog posts or display on a page, excerpts w/ images, 8 templates, categorize and more. 
+  Version: 2.67.0
   Author: Allen Weiss
-  Author URI: http://www.wprssimporter.com/
+  Author URI: http://www.allenweiss.com/wp_plugin
   License: GPL2  - most WordPress plugins are released under GPL2 license terms
 */
 
@@ -12,7 +12,7 @@
 
 
 /* Set the version number of the plugin. */
-define( 'WP_RSS_MULTI_VERSION', 2.6767);
+define( 'WP_RSS_MULTI_VERSION', 2.670);
 
  /* Set constant path to the plugin directory. */
 define( 'WP_RSS_MULTI_PATH', plugin_dir_path( __FILE__ ) );  
@@ -82,8 +82,8 @@ register_activation_hook( __FILE__, 'wp_rss_multi_importer_activate' );
 
 
 function rssmi_plugin_update_info() {
-	if (rssmi_remoteFileExists("http://www.wprssimporter.com/a/plugin-updates.txt")===True) {
-	$info = wp_remote_fopen("http://www.wprssimporter.com/a/plugin-updates.txt");
+	if (rssmi_remoteFileExists("http://www.allenweiss.com/a/plugin-updates.txt")===True) {
+	$info = wp_remote_fopen("http://www.allenweiss.com/a/plugin-updates.txt");
 	echo '<br />' . strip_tags( $info, "<br><a><b><i><span>" );
 		}
 }
@@ -126,6 +126,32 @@ function wp_rss_fetchFeed($url, $timeout = 10, $forceFeed=false,$showVideo=0)
 
 
 
+//	CODE FOR LOAD MORE  - can be deleted
+
+function pbd_alp_init2($max,$paged,$nextPost) {
+
+ 	// Add code to index pages.
+ 		// Queue JS and CSS
+ 		wp_enqueue_script(
+ 			'pbd-alp-load-posts',
+ 			plugin_dir_url( __FILE__ ) . 'scripts/load-posts.js',
+ 			array('jquery'),
+ 			'1.0',
+ 			true
+ 		);
+
+ 		// Add some parameters for the JS.
+ 		wp_localize_script(
+ 			'pbd-alp-load-posts',
+ 			'pbd_alp',
+ 			array(
+ 				'startPage' => $paged,
+ 				'maxPages' => $max,
+ 				'nextLink' => $nextPost
+ 			)
+ 		);
+
+ }
 
 
 
@@ -138,6 +164,7 @@ function wp_rss_fetchFeed($url, $timeout = 10, $forceFeed=false,$showVideo=0)
    
    function wp_rss_multi_importer_shortcode($atts=array()){
 	
+
 
 	
 	
@@ -185,7 +212,6 @@ add_filter( 'wp_feed_cache_transient_lifetime', 'wprssmi_hourly_feed' );
 		'showmore'=>NULL,
 		'warnmsg'=>NULL,
 		'nofollow'=>NULL,
-		'sourcename'=>'',
 		'authorprep'=>'by',
 		'windowstyle'=>NULL,
 		'morestyle' =>'[...]'
@@ -223,7 +249,6 @@ add_filter( 'wp_feed_cache_transient_lifetime', 'wprssmi_hourly_feed' );
 	$mytemplate=$parms['mytemplate'];
 	$windowstyle=$parms['windowstyle'];
 	$excerptlength=$parms['excerptlength'];
-	$parsourcename=$parms['sourcename'];
    	$readable = '';
    	$options = get_option('rss_import_options');
 	$option_items = get_option('rss_import_items');
@@ -248,27 +273,27 @@ $cat_array = preg_grep("^feed_cat_^", array_keys($option_items));
 	
 //GET PARAMETERS  
 global $RSSdefaultImage;
-$RSSdefaultImage=(isset($options['RSSdefaultImage']) ? $options['RSSdefaultImage'] : 0);  // 0- process normally, 1=use default for category, 2=replace when no image available
+$RSSdefaultImage=$options['RSSdefaultImage'];   // 0- process normally, 1=use default for category, 2=replace when no image available
 $size = count($option_items);
 $sortDir=$options['sortbydate'];  // 1 is ascending
 $stripAll=(isset($options['stripAll']) ? $options['stripAll'] : 0);
 $stripSome=(isset($options['stripSome']) ? $options['stripSome'] : null);
-$todaybefore=(isset($options['todaybefore']) ? $options['todaybefore'] : 0);
-$adjustImageSize=(isset($options['adjustImageSize']) ? $options['adjustImageSize'] : null);
+$todaybefore=$options['todaybefore'];
+$adjustImageSize=$options['adjustImageSize'];
 $showDesc=$options['showdesc'];  // 1 is show
 $descNum=$options['descnum'];
-$maxperPage=(isset($options['maxperPage']) ? $options['maxperPage'] : 5);
+$maxperPage=$options['maxperPage'];
 $showcategory=(isset($options['showcategory']) ? $options['showcategory'] : 0);
-$cacheMin=(isset($options['cacheMin']) ? $options['cacheMin'] : 0);
+$cacheMin=$options['cacheMin'];
 $maxposts=$options['maxfeed'];
 $showsocial=(isset($options['showsocial']) ? $options['showsocial'] : 0);
 $targetWindow=$options['targetWindow'];  // 0=LB, 1=same, 2=new
-$floatType=(isset($options['floatType']) ? $options['floatType'] : 0);
+$floatType=$options['floatType'];
 $noFollow=(isset($options['noFollow']) ? $options['noFollow'] : 0);
 $showmore=(isset($options['showmore']) ? $options['showmore'] : 0);
 $cb=(isset($options['cb']) ? $options['cb'] : null);  // 1 if colorbox should not be loaded
 $pag=$options['pag'];  // 1 if pagination 2 or 3 if load more
-$perPage=(isset($options['perPage']) ? $options['perPage'] : 5);
+$perPage=$options['perPage'];
 global $anyimage;
 $anyimage=(isset($options['anyimage']) ? $options['anyimage'] : 0);
 $addAuthor=(isset($options['addAuthor']) ? $options['addAuthor'] : 0);
@@ -276,7 +301,7 @@ $warnmsg=(isset($options['warnmsg']) ? $options['warnmsg'] : 0);
 $directFetch=(isset($options['directFetch']) ? $options['directFetch'] : 0);
 $forceFeed=(isset($options['forceFeed']) ? $options['forceFeed'] : 0);
 $forceFeed= ($forceFeed==1 ? True:False);
-$timeout=(isset($options['timeout']) ? $options['timeout'] : 10);
+$timeout=(isset($options['timeout']) ? $options['timeout'] : 0);
 if (!isset($timeout)) {$timeout=10;}
 if (!isset($directFetch)) {$directFetch=0;}
 
@@ -297,11 +322,8 @@ if (!is_null($pnofollow)) {$noFollow=$pnofollow;}
 if(empty($options['sourcename'])){
 	$attribution='';
 }else{
-	$attribution=$options['sourcename'].' ';
+	$attribution=$options['sourcename'].': ';
 }
-
-if ($parsourcename!='') $attribution=$parsourcename;
-
 
 if ($floatType=='1'){
 	$float="left";
@@ -442,7 +464,7 @@ if (empty($url)) {continue;}
 				echo $feed->get_error_message();
 				}	
 		if ($size<4){
-			return _e("There is a problem with the feeds you entered.  Go to our <a href='http://www.wprssimporter.com/faqs/im-told-the-feed-isnt-valid-or-working/'>support page</a> to see how to solve this.", 'wp-rss-multi-importer');
+			return _e("There is a problem with the feeds you entered.  Go to our <a href='http://www.allenweiss.com/faqs/im-told-the-feed-isnt-valid-or-working/'>support page</a> to see how to solve this.", 'wp-rss-multi-importer');
 			exit;
 
 		}else{
@@ -470,16 +492,13 @@ if (empty($url)) {continue;}
 //SORT DEPENDING ON SETTINGS
 
 	if($sortDir==1){
-		
-	
 
 		for ($i=$maxfeed-1;$i>=$maxfeed-$maxposts;$i--){
 			$item = $feed->get_item($i);
 			 if (empty($item))	continue;
-					
-				$thisTitle= html_entity_decode($item->get_title(),ENT_QUOTES,'UTF-8');
+			
 		
-				if(include_post($feeditem["FeedCatID"],$item->get_content(),$thisTitle)==0) continue;   // FILTER 		
+				if(include_post($feeditem["FeedCatID"],$item->get_content(),$item->get_title())==0) continue;   // FILTER 		
 					
 						if ($enclosure = $item->get_enclosure()){
 							if(!IS_NULL($item->get_enclosure()->get_thumbnail())){			
@@ -495,15 +514,14 @@ if (empty($url)) {continue;}
 						if ($itemAuthor = $item->get_author())
 						{
 							$itemAuthor=(!IS_NULL($item->get_author()->get_name()) ? $item->get_author()->get_name() : $item->get_author()->get_email());
-							$itemAuthor=html_entity_decode($itemAuthor,ENT_QUOTES,'UTF-8');	
 						}else if (!IS_NULL($feedAuthor)){
 							$itemAuthor=$feedAuthor;
-							$itemAuthor=html_entity_decode($itemAuthor,ENT_QUOTES,'UTF-8');		
+							
 						}
 						
 						
 						
-			$myarray[] = array("mystrdate"=>strtotime($item->get_date()),"mytitle"=>$thisTitle,"mylink"=>$item->get_link(),"myGroup"=>$feeditem["FeedName"],"mydesc"=>$item->get_content(),"myimage"=>$mediaImage,"mycatid"=>$feeditem["FeedCatID"],"myAuthor"=>$itemAuthor,"itemcategory"=>$item->get_category());
+			$myarray[] = array("mystrdate"=>strtotime($item->get_date()),"mytitle"=>$item->get_title(),"mylink"=>$item->get_link(),"myGroup"=>$feeditem["FeedName"],"mydesc"=>$item->get_content(),"myimage"=>$mediaImage,"mycatid"=>$feeditem["FeedCatID"],"myAuthor"=>$itemAuthor);
 				
 						unset($mediaImage);
 						unset($itemAuthor);
@@ -514,22 +532,17 @@ if (empty($url)) {continue;}
 
 		for ($i=0;$i<=$maxposts-1;$i++){
 				$item = $feed->get_item($i);
-				
-		
-		
-		
-			
+	
+	
 				if (empty($item))	continue;	
 				
-					$thisTitle= html_entity_decode($item->get_title(),ENT_QUOTES,'UTF-8');		
+							
 	
-	if(include_post($feeditem["FeedCatID"],$item->get_content(),$thisTitle)==0) continue;   // FILTER 
+	if(include_post($feeditem["FeedCatID"],$item->get_content(),$item->get_title())==0) continue;   // FILTER 
 
-			
+				$x=1;
 			if ($enclosure = $item->get_enclosure()){
-				
-				if(!IS_NULL($item->get_enclosure()->get_thumbnail())){	
-				
+				if(!IS_NULL($item->get_enclosure()->get_thumbnails())){	
 					$mediaImage=$item->get_enclosure()->get_thumbnail();
 				}else if (!IS_NULL($item->get_enclosure()->get_link())){
 					$mediaImage=$item->get_enclosure()->get_link();	
@@ -538,21 +551,20 @@ if (empty($url)) {continue;}
 				}	
 			}
 		
-
+	
 			
 			
 			if ($itemAuthor = $item->get_author())
 			{
-				$itemAuthor=(!IS_NULL($item->get_author()->get_name()) ? $item->get_author()->get_name() : $item->get_author()->get_email());
-				$itemAuthor=html_entity_decode($itemAuthor,ENT_QUOTES,'UTF-8');	
+			$itemAuthor=(!IS_NULL($item->get_author()->get_name()) ? $item->get_author()->get_name() : $item->get_author()->get_email());
+			
 			}else if (!IS_NULL($feedAuthor)){
-				$itemAuthor=$feedAuthor;
-				$itemAuthor=html_entity_decode($itemAuthor,ENT_QUOTES,'UTF-8');		
+				$itemAuthor=$feedAuthor;	
 			}
 			
-		
+					
 	
-			$myarray[] = array("mystrdate"=>strtotime($item->get_date()),"mytitle"=>$thisTitle,"mylink"=>$item->get_link(),"myGroup"=>$feeditem["FeedName"],"mydesc"=>$item->get_content(),"myimage"=>$mediaImage,"mycatid"=>$feeditem["FeedCatID"],"myAuthor"=>$itemAuthor,"itemcategory"=>$item->get_category());
+			$myarray[] = array("mystrdate"=>strtotime($item->get_date()),"mytitle"=>$item->get_title(),"mylink"=>$item->get_link(),"myGroup"=>$feeditem["FeedName"],"mydesc"=>$item->get_content(),"myimage"=>$mediaImage,"mycatid"=>$feeditem["FeedCatID"],"myAuthor"=>$itemAuthor);
 				
 					
 						unset($mediaImage);
@@ -591,7 +603,7 @@ if ($dumpthis==1){
 if (!isset($myarray) || empty($myarray)){
 	if(!$warnmsg==1 && current_user_can('edit_post')){
 	
-	return _e("There is a problem with the feeds you entered.  Go to our <a href='http://www.wprssimporter.com/faqs/im-told-the-feed-isnt-valid-or-working/'>support page</a> to see how to solve this.", 'wp-rss-multi-importer');
+	return _e("There is a problem with the feeds you entered.  Go to our <a href='http://www.allenweiss.com/faqs/im-told-the-feed-isnt-valid-or-working/'>support page</a> to see how to solve this.", 'wp-rss-multi-importer');
 	}
 	return;
 }
@@ -691,7 +703,7 @@ $end = ($currentPage * $perPage) + $perPage;
 
 if ($pag==2 || $pag==3){
 		 
-add_action('rssmi_load_more_data', 'rssmi_pbd_alp_init',10,5);
+add_action('rssmi_load_more_data', 'pbd_alp_init',10,5);
 if (strpos($currentURL,'http')==0){
 $nextPost='http://'.$currentURL.'pg=' . ($currentPage+1);
 }else{

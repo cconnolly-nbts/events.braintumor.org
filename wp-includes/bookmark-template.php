@@ -65,7 +65,7 @@ function _walk_bookmarks($bookmarks, $args = '' ) {
 			$bookmark->recently_updated = false;
 		$output .= $before;
 		if ( $show_updated && $bookmark->recently_updated )
-			$output .= '<em>';
+			$output .= get_option('links_recently_updated_prepend');
 
 		$the_link = '#';
 		if ( !empty($bookmark->link_url) )
@@ -116,7 +116,7 @@ function _walk_bookmarks($bookmarks, $args = '' ) {
 		$output .= '</a>';
 
 		if ( $show_updated && $bookmark->recently_updated )
-			$output .= '</em>';
+			$output .= get_option('links_recently_updated_append');
 
 		if ( $show_description && '' != $desc )
 			$output .= $between . $desc;
@@ -228,15 +228,7 @@ function wp_list_bookmarks($args = '') {
 			if ( empty($bookmarks) )
 				continue;
 			$output .= str_replace(array('%id', '%class'), array("linkcat-$cat->term_id", $class), $category_before);
-			/**
-			 * Filter the bookmarks category name.
-			 *
-			 * @since 2.2.0
-			 *
-			 * @param string $cat_name The category name of bookmarks.
-			 */
-			$catname = apply_filters( 'link_category', $cat->name );
-
+			$catname = apply_filters( "link_category", $cat->name );
 			$output .= "$title_before$catname$title_after\n\t<ul class='xoxo blogroll'>\n";
 			$output .= _walk_bookmarks($bookmarks, $r);
 			$output .= "\n\t</ul>\n$category_after\n";
@@ -257,13 +249,6 @@ function wp_list_bookmarks($args = '') {
 		}
 	}
 
-	/**
-	 * Filter the bookmarks list before it is echoed or returned.
-	 *
-	 * @since 2.5.0
-	 *
-	 * @param string $output The HTML list of bookmarks.
-	 */
 	$output = apply_filters( 'wp_list_bookmarks', $output );
 
 	if ( !$echo )
