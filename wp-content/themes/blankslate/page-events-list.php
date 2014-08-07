@@ -20,7 +20,7 @@ the_post_thumbnail();
 } 
 ?>
 <?php 
-$args = array( 'post_type' => 'events', 'posts_per_page' => 50, 'orderby'=>'menu_order' );
+$args = array( 'post_type' => 'events', 'posts_per_page' => 100, 'orderby'=>'menu_order' );
 $loop = new WP_Query( $args );
 //events array keeps events so we can sort it by key(date) later
 $events = array();

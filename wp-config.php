@@ -1,127 +1,89 @@
 <?php
-# Database Configuration
-define( 'DB_NAME', 'wp_brain' );
-define( 'DB_USER', 'brain' );
-define( 'DB_PASSWORD', '1HLv5tlpoel8FdMdpI3I' );
-define( 'DB_HOST', '127.0.0.1' );
-define( 'DB_HOST_SLAVE', '127.0.0.1' );
+
+/**
+ * The base configurations of the WordPress.
+ *
+ * This file has the following configurations: MySQL settings, Table Prefix,
+ * Secret Keys, WordPress Language, and ABSPATH. You can find more information
+ * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
+ * wp-config.php} Codex page. You can get the MySQL settings from your web host.
+ *
+ * This file is used by the wp-config.php creation script during the
+ * installation. You don't have to use the web site, you can just copy this file
+ * to "wp-config.php" and fill in the values.
+ *
+ * @package WordPress
+ */
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'wordpress_f');
+
+/** MySQL database username */
+define('DB_USER', 'wordpress_8');
+/** MySQL database password */
+define('DB_PASSWORD', 'cC7TKs01t_');
+/** MySQL hostname */
+define('DB_HOST', 'localhost:3306');
+
+/** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', 'utf8_unicode_ci');
-$table_prefix = 'wp_';
 
-# Security Salts, Keys, Etc
-define('AUTH_KEY',         '1k++X,!|(~BM!W;E7x@OUKc#lceSV7_UC-X)(qx^/Z$VB.|H,B|u{>k[-!Q>Y(37');
-define('SECURE_AUTH_KEY',  'x(8|dGi+s!Zd$d+pN9-SjkFt-PRNzw}w834vhILHR`J0_D{F/&yn/D2n_=--;rv;');
-define('LOGGED_IN_KEY',    '.-Kt$V;--fF||g!QL7u4{rSRy,>AS+>UwA91)]ksPT],&AkHUN/vsi;Z-zqWk wN');
-define('NONCE_KEY',        ',yqGO<HQd~s[ZJw63,^p(g0Nb8e`@[_C<|S>9X*!=*%MvB >qra$9-{C5!j`_]k)');
-define('AUTH_SALT',        '1eGM6I?rQofA[&d0-|^qyqzUi&HX!Pa)0Ilo@ozaVO[w};,l?k-]Zv`~bc<w9Yn<');
-define('SECURE_AUTH_SALT', 'ajT9EgpZUY@{*G$1mE7y=mhu^1>-udNdiu@e0_NV=(=XD]|N{FJk:d?b7M^2aV7~');
-define('LOGGED_IN_SALT',   ']cT_-/qJ4d](`a+z+.2t/dQqK=Cn,5=-WeVSlLl}c{`3:36?[Gac*ZiZmK(XBMo*');
-define('NONCE_SALT',       '{Vpg[$AH} qwp>PbKz>=.[I&JuGAlusiG``89YK8Wc5F~,uj/Ozj?zy:)2k8cD!2');
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
 
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
+ * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+ * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 
-# Localized Language Stuff
+/**#@-*/
 
-define( 'WP_CACHE', TRUE );
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each a unique
+ * prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix  = 'wp_';
 
-define( 'WP_AUTO_UPDATE_CORE', false );
+/**
+ * WordPress Localized Language, defaults to English.
+ *
+ * Change this to localize WordPress. A corresponding MO file for the chosen
+ * language must be installed to wp-content/languages. For example, install
+ * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
+ * language support.
+ */
+define('WPLANG', '');
 
-define( 'PWP_NAME', 'brain' );
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ */
+define('WP_DEBUG', false);
 
-define( 'FS_METHOD', 'direct' );
+/* That's all, stop editing! Happy blogging. */
 
-define( 'FS_CHMOD_DIR', 0775 );
-
-define( 'FS_CHMOD_FILE', 0664 );
-
-define( 'PWP_ROOT_DIR', '/nas/wp' );
-
-define( 'WPE_APIKEY', '4c39827c27ae4203c7f7effa9bb2e544a4bbfcd6' );
-
-define( 'WPE_FOOTER_HTML', "" );
-
-define( 'WPE_CLUSTER_ID', '1059' );
-
-define( 'WPE_CLUSTER_TYPE', 'pod' );
-
-define( 'WPE_ISP', true );
-
-define( 'WPE_BPOD', false );
-
-define( 'WPE_RO_FILESYSTEM', false );
-
-define( 'WPE_LARGEFS_BUCKET', 'largefs.wpengine' );
-
-define( 'WPE_CACHE_TYPE', 'generational' );
-
-define( 'WPE_LBMASTER_IP', '173.255.203.168' );
-
-define( 'WPE_CDN_DISABLE_ALLOWED', false );
-
-define( 'DISALLOW_FILE_EDIT', FALSE );
-
-define( 'DISALLOW_FILE_MODS', FALSE );
-
-define( 'DISABLE_WP_CRON', false );
-
-define( 'WPE_FORCE_SSL_LOGIN', false );
-
-define( 'FORCE_SSL_LOGIN', false );
-
-/*SSLSTART*/ if ( isset($_SERVER['HTTP_X_WPE_SSL']) && $_SERVER['HTTP_X_WPE_SSL'] ) $_SERVER['HTTPS'] = 'on'; /*SSLEND*/
-
-define( 'WPE_EXTERNAL_URL', false );
-
-define( 'WP_POST_REVISIONS', FALSE );
-
-define( 'WPE_WHITELABEL', 'wpengine' );
-
-define( 'WP_TURN_OFF_ADMIN_BAR', false );
-
-define( 'WPE_BETA_TESTER', false );
-
-umask(0002);
-
-$wpe_cdn_uris=array ( );
-
-$wpe_no_cdn_uris=array ( );
-
-$wpe_content_regexs=array ( );
-
-$wpe_all_domains=array ( 0 => 'brain.wpengine.com', );
-
-$wpe_varnish_servers=array ( 0 => 'pod-1059', );
-
-$wpe_special_ips=array ( 0 => '173.255.203.168', );
-
-$wpe_ec_servers=array ( );
-
-$wpe_largefs=array ( );
-
-$wpe_netdna_domains=array ( 0 =>  array ( 'match' => 'brain.wpengine.com', 'zone' => '25ryqu3la7tu1sk7c51c6kadw01', 'secure' => false, ), );
-
-$wpe_netdna_domains_secure=array ( );
-
-$wpe_netdna_push_domains=array ( );
-
-$wpe_domain_mappings=array ( );
-
-$memcached_servers=array ( 'default' =>  array ( 0 => 'unix:///tmp/memcached.sock', ), );
-define('WPLANG','');
-
-# WP Engine ID
-
-
-# WP Engine Settings
-
-
-
-
-
-
-# That's It. Pencils down
+/** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
-require_once(ABSPATH . 'wp-settings.php');
 
-$_wpe_preamble_path = null; if(false){}
+/** Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');

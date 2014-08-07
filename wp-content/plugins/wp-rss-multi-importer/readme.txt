@@ -1,17 +1,17 @@
 === WP RSS Multi Importer ===
-Contributors: amweiss98
+Contributors: allenweiss
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M6GC7V8BARAJL
 Tags: rss, atom, feeds, aggregation, aggregator, import, syndication, autoblog, widget
 Requires at least: 3.1
-Tested up to: 3.9.1
-Stable tag: 2.67.67
-Aggregate RSS feeds. Auto post or use shortcode, excerpts w/ images, 13 templates, categorize and more.
+Tested up to: 3.6
+Stable tag: 2.67.0
+Aggregate RSS feeds. Auto post or use shortcode, excerpts w/ images, 9 templates, categorize and more.
 
 == Description ==
 
-All-In-One solution for importing, merging and displaying RSS and Atom feeds on your Wordpress site. Highly rated (in Top 30 of Wordpress plugins) and popular (Top 300). Using this plugin you can do 4 things (separately or at the same time):
+All-In-One solution for importing, merging and displaying RSS and Atom feeds on your Wordpress site.  Using this plugin you can do 4 things (separately or at the same time):
 
-* Display the aggregated feed items on a page in one of __13 different templates that you can customize__ 
+* Display the aggregated feed items on a page in one of __9 different templates that you can customize__ 
 * __Create blog posts (autoblog)__ from the feed items so readers can comment on them
 * Display the aggregated feed items in a __theme widget__, in one of 3 different displays
 * Display the aggregated feed items in __your own RSS feed__
@@ -59,7 +59,7 @@ These features are all available in the admin panel.
 
 = Credit = 
 
-[__Allen Weiss__](http://www.wprssimporter.com/)
+[__Allen Weiss__](http://www.allenweiss.com/wp_plugin)
 
 == Installation ==
 
@@ -103,7 +103,7 @@ Yes.  Just add feeds and then go to the Feed to Posts Options tab in the admin s
 Yes.  Just add feeds and then go to the Export Feed Options tab in the admin section.
 
 
-Go here to find [__all FAQs__](http://www.wprssimporter.com/faqs/)
+Go here to find [__more FAQs__](http://www.allenweiss.com/faqs)
 
 == Screenshots ==
 
@@ -117,53 +117,8 @@ Go here to find [__all FAQs__](http://www.wprssimporter.com/faqs/)
 
 == Changelog ==
 
-= Version 2.67.67 (2014-8-13) =
-* NEW: Export all your feeds (title, URL and category) in a text file.
-* NEW: New template of smooth scroll with image and title.
-
-= Version 2.67.66 (2014-8-10) =
-* Fixed: Bug that caused resizing image not to work in the shortcode using parameters.  Should improve performance of shortcode.
-
-= Version 2.67.65 (2014-8-2) =
-* Fixed: Bug that caused problems in viewing the custom pane for themes when the widget as active.
-
-= Version 2.67.64 (2014-6-19) =
-* Fixed: Problem with Google news and duplicate posts (may get some duplicates due to a change in the way the permalinks are processed).
-* Fixed: Iframe on YouTube videos now sized by css in the templates.css file
-
-= Version 2.67.63 (2014-5-27) =
-* NEW: Added diagnostics page which gives information on the plugin to help you diagnose problems.
-* Fixed:  Problems due to upgraded PHP5.0 systems and discontinued functions.
-
-= Version 2.67.62 (2014-5-18) =
-* Fixed:  Problem with stopping comments on posts and other bugs.
-
-= Version 2.67.61 (2014-5-17) =
-* Fixed:  Problem yahoo pipes and google alert feeds all importing.
-
-= Version 2.67.6 (2014-5-13) =
-* Fixed:  Problem with RSS feed categories showing up..now is an option for the feed to post.
-
-= Version 2.67.5 (2014-5-8) =
-* NEW: Added option to save only posts that have comments to feed to post entries.  Increased number of total fetch items.
-* Fixed:  Problem with decoding posts from Facebook RSS feeds
-* Fixed:  Fixed several bugs related to other plugin conflicts.
-
-= Version 2.67.4 (2014-1-26) =
-* NEW: Added option to add canonical URLS to feed to post entries.
-
-= Version 2.67.3 (2014-1-1) =
-* Fixed: Notices due to users having debug on.  Several small bugs fixed.
-
-= Version 2.67.2 (2013-12-2) =
-* Fixed: Fixed several bugs related to other plugin conflicts.
-
-= Version 2.67.1 (2013-10-19) =
-* NEW: Facebook post images now automatically chosen for larger size.
-* NEW: Eliminates continue reading, read more, etc, that shows up in the text on some feeds.
-
 = Version 2.67.0 (2013-9-18) =
-* Fixed: Fixed problem with a template that caused some users to have the feeds disappear.
+* Fixed: Fixed problem with a template that causing some users to have the feeds disappear.
 
 = Version 2.66.9 (2013-9-17) =
 * NEW: Option to Load More instead of pagination.  

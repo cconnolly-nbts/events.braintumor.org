@@ -6,7 +6,7 @@
 	direction: rtl;
 }
 .countdown_row {
-	clear: both;
+
 	display: block;
 	text-align: center;
 	overflow: hidden;
@@ -23,6 +23,7 @@
 .countdown_txt {
 	display: block;
 	text-align: center;
+        color: #fff;
 }
 .countdown_descr {
 	display: block;
@@ -68,9 +69,9 @@
 }
 #uji_sec{
 	overflow: hidden;
-	display: none;
+	display: block;
     float: left;
-    margin: 0 10px 0 0;
+    margin: 0;
     text-align: center;
 }
 #uji_sec .countdown_section{

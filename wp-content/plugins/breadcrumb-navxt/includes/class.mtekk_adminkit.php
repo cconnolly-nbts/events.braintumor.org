@@ -1,6 +1,6 @@
 <?php
 /*  
-	Copyright 2009-2014  John Havlik  (email : john.havlik@mtekk.us)
+	Copyright 2009-2013  John Havlik  (email : mtekkmonkey@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 require_once(dirname(__FILE__) . '/block_direct_access.php');
 abstract class mtekk_adminKit
 {
-	const __version = '1.2';
+	private $__version = '1.2';
 	protected $version;
 	protected $full_name;
 	protected $short_name;
@@ -56,7 +56,7 @@ abstract class mtekk_adminKit
 	 */
 	function get_admin_class_version()
 	{
-		return self::__version;
+		return $__version;
 	}
 	/**
 	 * Return the URL of the settings page for the plugin
@@ -344,7 +344,6 @@ abstract class mtekk_adminKit
 	 * 
 	 * @param array $opts good, clean array
 	 * @param array $input unsanitzed input array, not trusted at all
-	 * @todo This function should probably get a filter thrown within it to be more extensible
 	 */
 	protected function opts_update_loop(&$opts, $input)
 	{
@@ -396,13 +395,10 @@ abstract class mtekk_adminKit
 							$opts[$option] = esc_html($input[$option]);
 						}
 						break;
-					//Deal with strings that can be null
+					//Treat everything else as a normal string
 					case 's':
-						$opts[$option] = esc_html($input[$option]);
-						break;
-					//By default we have nothing to do, allows for internal settings
 					default:
-						break;
+						$opts[$option] = esc_html($input[$option]);
 				}
 			}
 		}
@@ -587,7 +583,7 @@ abstract class mtekk_adminKit
 				if($options->getAttribute('name') === $this->short_name)
 				{
 					//Grab the file version
-					$version = $options->getAttribute('version');
+					$version = explode('.', $options->getAttribute('version'));
 					//Loop around all of the options
 					foreach($options->getelementsByTagName('option') as $child)
 					{
@@ -748,7 +744,12 @@ abstract class mtekk_adminKit
 	 */
 	function admin_page()
 	{
-	    
+		//Admin Options update hook
+		if(isset($_POST[$this->unique_prefix . '_admin_options']))
+		{
+			//Temporarily add update function on init if form has been submitted
+			$this->opts_update();
+		}
 	}
 	/**
 	 * Function prototype to prevent errors

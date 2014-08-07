@@ -7,7 +7,7 @@
  */
 
 /** Load WordPress Administration Bootstrap */
-require_once( dirname( __FILE__ ) . '/admin.php' );
+require_once('./admin.php');
 
 $parent_file = 'upload.php';
 $submenu_file = 'upload.php';
@@ -81,10 +81,10 @@ case 'edit' :
 	get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __('For more information:') . '</strong></p>' .
 	'<p>' . __('<a href="http://codex.wordpress.org/Media_Add_New_Screen#Edit_Media" target="_blank">Documentation on Edit Media</a>') . '</p>' .
-	'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
+	'<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
 	);
 
-	require( ABSPATH . 'wp-admin/admin-header.php' );
+	require( './admin-header.php' );
 
 	$parent_file = 'upload.php';
 	$message = '';
@@ -103,6 +103,7 @@ case 'edit' :
 ?>
 
 <div class="wrap">
+<?php screen_icon(); ?>
 <h2>
 <?php
 echo esc_html( $title );
@@ -135,7 +136,7 @@ if ( current_user_can( 'upload_files' ) ) { ?>
 
 <?php
 
-	require( ABSPATH . 'wp-admin/admin-footer.php' );
+	require( './admin-footer.php' );
 
 	exit;
 

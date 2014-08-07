@@ -21,7 +21,7 @@ function add_ujic_popup(){
 			jQuery(function() {
 					jQuery('#dateujic').datetimepicker({
 					timeFormat: 'HH:mm',
-					dateFormat: 'yy/mm/dd'
+					dateFormat: 'Month dd, yyyy'
 					});
 					jQuery("#ui-datepicker-div").wrap('<div id="ujicountdownadd" />');
 					jQuery('#dateujic').click(function () {
@@ -151,7 +151,7 @@ function ujic_code( $atts, $content = null ) {
 	//Timezone
 
 	$utc = 2*(60*60);
-	$now_time = strtotime(date_i18n("Y/m/d H:i:s"))-$utc;
+	$now_time = strtotime(date_i18n("Month dd, yyyy H:i:s"))-$utc;
 	$unx_time = $expire.":00";
 	$unx_time = strtotime($unx_time)-$utc;
 	

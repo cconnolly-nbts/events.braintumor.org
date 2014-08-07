@@ -70,7 +70,7 @@ function get_default_link_to_edit() {
 }
 
 /**
- * Delete link specified from database.
+ * Delete link specified from database
  *
  * @since 2.0.0
  *
@@ -79,25 +79,13 @@ function get_default_link_to_edit() {
  */
 function wp_delete_link( $link_id ) {
 	global $wpdb;
-	/**
-	 * Fires before a link is deleted.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @param int $link_id ID of the link to delete.
-	 */
+
 	do_action( 'delete_link', $link_id );
 
 	wp_delete_object_term_relationships( $link_id, 'link_category' );
 
 	$wpdb->delete( $wpdb->links, array( 'link_id' => $link_id ) );
-	/**
-	 * Fires after a link has been deleted.
-	 *
-	 * @since 2.2.0
-	 *
-	 * @param int $link_id ID of the deleted link.
-	 */
+
 	do_action( 'deleted_link', $link_id );
 
 	clean_bookmark_cache( $link_id );
@@ -218,25 +206,11 @@ function wp_insert_link( $linkdata, $wp_error = false ) {
 
 	wp_set_link_cats( $link_id, $link_category );
 
-	if ( $update ) {
-		/**
-		 * Fires after a link was updated in the database.
-		 *
-		 * @since 2.0.0
-		 *
-		 * @param int $link_id ID of the link that was updated.
-		 */
+	if ( $update )
 		do_action( 'edit_link', $link_id );
-	} else {
-		/**
-		 * Fires after a link was added to the database.
-		 *
-		 * @since 2.0.0
-		 *
-		 * @param int $link_id ID of the link that was added.
-		 */
+	else
 		do_action( 'add_link', $link_id );
-	}
+
 	clean_bookmark_cache( $link_id );
 
 	return $link_id;

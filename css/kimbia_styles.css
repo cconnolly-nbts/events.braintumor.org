@@ -1,0 +1,1394 @@
+body{
+    background-color: transparent;
+}
+/* ********************************** */
+/* Generic Element For Kimbia Forms   */
+/* ********************************** */
+.formborder{
+    border: 0px solid #EAEAEA;
+    border-radius: 12px;
+    color: #555555;
+    margin: 10px 0;
+}
+
+.red {
+	color:#ff0000;
+}
+
+.kcc_commitmentCenterMain {
+    background-color: #FFFFFF;
+    border: 0 solid #FFFFFF !important;
+    border-radius: 5px;
+    color: #222222;
+    height: 500px;
+    max-width: 604px;
+    min-width: 604px;
+    padding: 8px;
+    position: relative;
+}
+
+
+div.k_fundraisingTeamsList_default {
+    border: 0 solid #FFFFFF !important;
+    border-radius: 0;
+    padding: 8px;
+    width: 100%;
+}
+
+div.k_fundraisingTeamsList_default div.k_team {
+    border-top: 0px solid #FFFFFF;
+    clear: both;
+    margin-top: 1px;
+    overflow: hidden;
+    width: 100%;
+}
+
+div.k_status_default .header .bar .bottom {
+    background-color: #595959;
+    border-color: #545454 #CCCCCC #CCCCCC #1A1A1A;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 3px 1px 1px;
+    height: 9px;
+}
+
+
+div.k_status_default .header .bar .top {
+    background-color: #4F4F4F;
+    border-color: #1A1A1A #CCCCCC #000000 #1A1A1A;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    height: 9px;
+}
+
+
+div.k_status_default .header .bar .fill .top {
+    background-color: #7BC143;
+    border-color: #85AB54 #000000 #000000 #85AB54;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    height: 8px;
+}
+
+div.k_status_default .header .bar .fill .bottom {
+    background-color: #7B9E4D;
+    border-color: #719147 #000000 #4F6632 #85AB54;
+    border-radius: 0 0 0 0px;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    height: 8px;
+}
+
+
+.l-box {
+    padding: 1em;
+}
+.pure-g-r img {
+    height: auto;
+    max-width: 100%;
+}
+
+#content, #footContain, #siteHeader, #barContent {
+    margin: 0 auto;
+    max-width: 100% !important;
+    width: 1000px;
+}
+
+form > div > span {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#imgBar img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 1000px;
+}
+
+#imgBar .imgContainer {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    width: 1000px;
+}
+
+div.kimbiaDiv.two_col span.fieldCaption {
+    clear: left;
+    display: block;
+    margin-left: 0px !important;
+    margin-top:5px;
+    margin-bottom: 15px;
+}
+button {
+   	background-color: #E3E3E3;
+    background-image: -moz-linear-gradient(center top , #EAEAEA, #DBDBDB);
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    color: #646464;
+    cursor: pointer;
+    margin:10px;
+    min-width: 100px;
+    overflow: visible;
+    padding: 10px 7px;
+ }
+
+.forward {
+	background-color: #D2E5C5;
+    background-image: -moz-linear-gradient(center top , #D2E5C5, #B8D39C);
+    border: 1px solid #A7D08E;
+    color: #2F6601;
+}
+
+a.button.forward:hover {
+	background-image: -moz-linear-gradient(center top , #B8D39C, #D2E5C5);
+}
+
+.k_jquery-ui .ui-widget-content {
+    background: url("images/ui-bg_flat_75_ffffff_40x100.png") repeat-x scroll 50% 50% #FFFFFF;
+    border: 0px solid #AAAAAA;
+    color: #222222;
+}
+
+@media screen and (max-width:640px) {
+    button {
+    width: 100%;
+    }
+    
+    div.kimbiaDiv .k_buttonBlock {
+        white-space: normal !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .back, .forward {
+        width: 275px;
+    }
+
+    div.kimbiaDiv button.k_button.back {
+       width: 275px;
+    }
+
+    /* Personal Page */
+    .kcc_commitmentCenterMain {
+        background-color: #FFFFFF;
+        border: 1px solid #AAAAAA;
+        border-radius: 5px;
+        color: #222222;
+        height: 476px;
+        max-width: 350px;
+        min-width: 350px;
+        padding: 8px;
+        position: relative;
+    }
+    iframe.commitment {
+        border: medium none;
+        height: 476px;
+        left: 0;
+        min-height: 500px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 350px;
+    }
+    div.k_commitment {
+        height: 476px;
+        position: relative;
+        width: 350px;
+    }
+
+}
+
+
+div.k_status_default .badge div {
+    font-size: 20px;
+    text-align: left;
+    color:#66BC29;
+    font-family: Arial,Helvetica,Sans-Serif !important;
+}
+
+div.kimbiaDiv {
+    display: block;
+    font-size: 100%;
+    height: auto;
+    margin: 4px;
+    position: relative;
+    text-align: left;
+    width: auto;
+}
+div.kimbiaDiv b, div.kimbiaDiv strong, div.kimbiaDiv table th, div.kimbiaDiv h1, div.kimbiaDiv h2, div.kimbiaDiv h3, div.kimbiaDiv h4, div.kimbiaDiv h5, div.kimbiaDiv h6 {
+    font-weight: bold;
+}
+div.kimbiaDiv i, em {
+    font-style: italic;
+}
+div.kimbiaDiv .eventDescription span, div.kimbiaDiv .fieldCaption span, div.kimbiaDiv .k_nonChoice span, div.kimbiaDiv .k_instruction span, div.kimbiaDiv .k_confMessage span {
+    display: inline;
+}
+div.kimbiaDiv .k_confMessage span.k_commitmentCenter, div.kimbiaDiv .k_confMessage span.k_workflowSource, div.kimbiaDiv span.k_transCode, div.kimbiaDiv span.k_messagingProfile {
+    display: block;
+    margin-top: 1em;
+}
+div.kimbiaDiv .eventDescription p, div.kimbiaDiv .fieldCaption p, div.kimbiaDiv .k_nonChoice p, div.kimbiaDiv .k_instruction p, div.kimbiaDiv .k_confMessage p {
+    clear: none;
+}
+div.kimbiaDiv div.kimbiaInnerDiv label.formDefLabel {
+    clear: both;
+    float: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.1em 0 0.5em;
+    width: auto;
+}
+div.kimbiaDiv .eventDescription {
+    clear: both;
+}
+div.kimbiaDiv .k_instruction {
+    padding-bottom: 0.5em;
+}
+div.kimbiaDiv form {
+    margin: 0;
+}
+div.kimbiaDiv p {
+    clear: both;
+}
+div.kimbiaDiv span, div.kimbiaDiv div {
+    display: block;
+}
+div.kimbiaDiv h1, div.kimbiaDiv h2, div.kimbiaDiv h3, div.kimbiaDiv h4 {
+    clear: both;
+    margin-bottom: 0.5em;
+}
+div.kimbiaDiv div.k_content {
+    overflow: visible;
+    width: auto;
+    padding:0px;
+}
+div.kimbiaDiv input.k_number, div.kimbiaDiv input.k_text, div.kimbiaDiv input.k_money, div.kimbiaDiv select.k_select {
+    clear: right;
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+}
+div.kimbiaDiv select.k_select optgroup {
+    color: #CCCCCC;
+    font-style: normal;
+    font-weight: normal;
+}
+div.kimbiaDiv input.k_number {
+    display: inline;
+}
+div.kimbiaDiv span.k_nonSelect {
+    display: inline;
+}
+div.kimbiaDiv input.k_number, div.kimbiaDiv input.k_text, div.kimbiaDiv input.k_money, div.kimbiaDiv textarea.k_textarea, div.kimbiaDiv select.k_select, div.kimbiaDiv input.couponCode {
+    border: 1px solid #999999;
+}
+div.kimbiaDiv div.k_rbGroup input.k_money.k_otherMoney, div.kimbiaDiv div.k_rbGroup input.k_otherText {
+    display: inline;
+    margin-left: 25px;
+    margin-right: -22px;
+}
+div.kimbiaDiv div.k_rbGroup input.k_money.k_otherMoney {
+    max-width: 8em;
+    width: 8em;
+}
+div.kimbiaDiv span.k_otherMoneyHint {
+    display: inline;
+    font-size: 0.8em;
+    margin-left: 146px;
+}
+div.kimbiaDiv div.k_rbGroup span.k_otherMoneyHint {
+    display: inline-block;
+    margin-left: 25px;
+    white-space: nowrap;
+}
+div.kimbiaDiv span.k_paymentPlanHint {
+    display: inline;
+}
+div.kimbiaDiv.two_col label.k_paymentPlanTitle {
+    float: none;
+    padding-top: 0.2em;
+}
+div.kimbiaDiv input.k_number.k_required, div.kimbiaDiv input.k_text.k_required, div.kimbiaDiv input.k_money.k_required, div.kimbiaDiv textarea.k_textarea.k_required {
+    border: 1px solid #555555;
+    margin-bottom:0px;
+}
+div.kimbiaDiv select.k_select.k_required {
+    border-color: #555555;
+    margin-bottom:20px;
+}
+div.kimbiaDiv textarea.k_textarea {
+    float: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: 7em;
+    line-height: 1.65em;
+    margin: 0.2em 0.5em 0.1em 0;
+    padding: 0.2em;
+    width: 100%;
+}
+div.kimbiaDiv input.k_radioCB {
+	font-weight: bold;
+    clear: left;
+    display: block;
+    float: none;
+    height: 13px;
+    line-height: 1.5em;
+    margin: 0.6em 0 0 3px;
+    width: 13px;
+}
+div.kimbiaDiv div.inputGroup.acknowledge input.k_radioCB {
+    position: relative;
+}
+div.kimbiaDiv label {
+    display: block;
+    font-size: 0.9em;
+    margin-top: 0.6em;
+}
+div.kimbiaDiv div.inputGroup.k_rbGroup {
+    clear: both;
+    float: none;
+    margin: 0 0 0.5em;
+    overflow: visible;
+    padding: 0.1em 0 0;
+}
+div.kimbiaDiv label.groupLabel, div.kimbiaDiv .k_sharing .k_heading {
+    clear: both;
+    float: none;
+    font-size: 1.1em;
+    padding: 0.1em 0 0.5em;
+    width: auto;
+}
+div.kimbiaDiv span.k_sharing {
+    margin-bottom: 1.5em;
+}
+div.kimbiaDiv label.groupLabel.section {
+	text-transform: uppercase;
+	color: #009CDC;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 1.25em 0 0.3em;
+}
+div.kimbiaDiv div.k_rbGroup label {
+    float: none;
+}
+div.kimbiaDiv div.k_rbGroup label.k_disabled {
+    color: #CCCCCC;
+}
+div.kimbiaDiv div.k_rbGroup label.k_nonChoice {
+    position: relative;
+    width: auto;
+}
+div.kimbiaDiv div.k_rbGroup label.groupLabel {
+    margin: 0.6em 0 0;
+}
+div.kimbiaDiv div.inputGroup.acknowledge label.k_radioCB {
+    float: none;
+    width: auto;
+}
+div.kimbiaDiv div.inputGroup.k_rbGroup label.k_radioCB, div.kimbiaDiv div.inputGroup label.k_radioCB {
+    font-weight: bold;
+    float: none;
+    line-height: 1.5em;
+    margin: -1.65em 0 0 25px;
+    padding: 0.44em 0 0.5em;
+    vertical-align: top;
+    width: auto;
+}
+
+div.kimbiaDiv label.k_required {
+    font-weight: bold;
+}
+div.kimbiaDiv label.k_required:before {
+    color: #FF0000;
+    content: "* ";
+    margin-left: -10px;
+    width: 100%;
+}
+div.kimbiaDiv input.k_required {
+    border: 1px solid #333333;
+}
+div.kimbiaDiv span.k_required {
+    font-size: 0.8em;
+    font-weight: normal;
+    margin-bottom: 0.3em;
+}
+div.kimbiaDiv span.fieldCaption {
+    clear: both;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    margin: 0 0 0.6em;
+    overflow: visible;
+}
+div.kimbiaDiv div.inputGroup.k_rbGroup span.fieldCaption {
+    clear: both;
+    display: block;
+    margin-left: 0;
+}
+div.kimbiaDiv span.k_messages {
+    clear: both;
+    color: #991111;
+    display: none;
+    float: none;
+    height: auto;
+    line-height: 1.1;
+    margin: 0;
+    overflow: visible;
+    padding: 0 0 0.2em 0.2em;
+    width: auto;
+}
+div.kimbiaDiv div.inputGroup.k_rbGroup span.k_messages {
+    height: 0;
+    line-height: 1.5em;
+    max-width: 34em;
+    overflow: visible;
+}
+div.kimbiaDiv div.inputGroup.acknowledge span.fieldCaption {
+    margin-left: 0;
+}
+div.kimbiaDiv div.inputGroup {
+    clear: both;
+    float: none;
+    margin: 0 0 0 0.1em;
+    position: static;
+}
+div.kimbiaDiv div.k_questionBlock.contactInfo div.inputGroup {
+    margin-left: 0;
+}
+div.kimbiaDiv div.inputGroup.acknowledge {
+    clear: both;
+    float: none;
+    width: auto;
+}
+div.kimbiaDiv div.inputGroup.acknowledge label {
+    clear: none;
+    float: none;
+}
+div.kimbiaDiv input.couponCode {
+    clear: left;
+    float: left;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0.5em;
+    vertical-align: text-bottom;
+}
+div.kimbiaDiv select.k_select {
+    float: none;
+    font-size: 0.9em;
+    height: 1.8em;
+    margin: 0 0 0.3em;
+    padding: 0.2em;
+    vertical-align: middle;
+}
+div.kimbiaDiv div.clearfix, div.kimbiaDiv br.clearfix, .clearfix, div.kimbiaDiv span.k_navigationSpan {
+    clear: both;
+}
+div.kimbiaDiv .k_buttonBlock {
+    border-collapse: collapse;
+    clear: both;
+    display: block;
+    float: none;
+    height: 60px;
+    margin: 0;
+    max-height: 100%;
+    overflow: visible;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+div.kimbiaDiv .k_buttonBlock td {
+    padding: 0;
+    vertical-align: middle;
+}
+div.kimbiaDiv button.k_button.forward {
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+div.kimbiaDiv button.k_button.back {
+   background-color: #E3E3E3;
+    background-image: -moz-linear-gradient(center top , #EAEAEA, #DBDBDB);
+    border: 1px solid #DBDBDB;
+    border-radius: 3px;
+    color: #646464;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    min-width: 132px;
+    overflow: visible;
+    padding: 10px 7px;
+}
+div.kimbiaDiv button.k_button.forward.apply {
+    clear: none;
+    display: block;
+    float: left;
+    margin-top: 0;
+    vertical-align: text-top;
+}
+div.kimbiaDiv .k_buttonLink {
+    background: -moz-linear-gradient(50% 100% , #FCFCFC 0px, #EAEAEA 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #999999;
+    border-radius: 3px;
+    color: #424242;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 12px 12px;
+    padding: 0.5em 0.7em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+div.kimbiaDiv div.k_callToAction {
+    background-color: #F3F3F3;
+    border: 1px solid #ACACAC;
+}
+div.kimbiaDiv .callToAction table {
+    border: medium none;
+}
+div.kimbiaDiv .callToAction td {
+    margin: 12px;
+}
+div.kimbiaDiv td.callToActionDescriptionCell {
+    text-align: left;
+    vertical-align: top;
+    width: 99%;
+}
+div.kimbiaDiv td.callToActionButtonCell {
+    text-align: right;
+    vertical-align: middle;
+    width: 1%;
+}
+div.kimbiaDiv .invalid {
+    background-color: #FFCCCC;
+}
+div.kimbiaDiv .informational {
+    background-color: #D5EDF5;
+    border: 1px solid #CCDDEE;
+    border-collapse: separate;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+div.kimbiaDiv table.k_table td, div.kimbiaDiv table.k_table th {
+    background-color: rgba(0, 0, 0, 0);
+    border-collapse: collapse;
+    font-size: 0.9em;
+    padding: 0 0 0.5em;
+    text-align: left;
+    vertical-align: top;
+    width: 100%;
+}
+div.kimbiaDiv table.k_table td.k_terms {
+    font-style: italic;
+}
+div.kimbiaDiv table.k_table th {
+    font-weight: bold;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
+div.kimbiaDiv table.k_table td.k_total {
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px 0 0;
+    font-weight: bold;
+    line-height: 1.1em;
+}
+div.kimbiaDiv table.k_table td.k_money {
+    text-align: right;
+    white-space: nowrap;
+    width: 1%;
+    word-wrap: normal;
+}
+div.kimbiaDiv table.k_table {
+    display: block;
+    height: auto;
+    margin-bottom: 1.5em;
+    overflow-y: visible;
+}
+div.kimbiaDiv table.k_table.k_discount {
+    margin-bottom: 0;
+}
+div.kimbiaDiv div.errDiv {
+    clear: both;
+    float: none;
+}
+.k_secureMsg {
+    clear: both;
+    font-family: sans-serif;
+    font-size: 13px;
+    height: 20px;
+    padding-left: 16px;
+}
+.k_checkmarkBg {
+    background: url("http://s3.amazonaws.com/cdn-production/widgets/form/img/k_checkMark.gif") no-repeat scroll left top rgba(0, 0, 0, 0);
+}
+.k_secureMsg a {
+    text-decoration: none;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement {
+    background-color: #EAEAEA;
+    border: 1px solid #000000;
+    color: #000000;
+    left: 0;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    position: relative;
+    text-align: left;
+    top: 0;
+    vertical-align: bottom;
+    width: 90%;
+    z-index: 10;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement span.secureHeading {
+    clear: both;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement p {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement div.k_buttonBlock {
+    height: 25px;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement .k_buttonBlock button.k_button {
+    float: none;
+    margin: 2px 25%;
+}
+div.kimbiaDiv div.k_overlay.k_secureStatement textarea.k_textarea {
+    float: none;
+}
+div.kimbiaDiv div.k_footer {
+    margin-top: 1.5em;
+}
+div.kimbiaDiv .k_sharing .k_code, div.kimbiaDiv .k_sharing .k_code.k_snippet {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    width: 100%;
+}
+div.kimbiaDiv .k_sharing .k_code, div.kimbiaDiv .k_sharing .k_code.k_snippet {
+    max-width: 50em;
+}
+div.kimbiaDiv .k_link.popup, div.kimbiaDiv .k_link.popup:visited {
+    color: #000000;
+}
+div.kimbiaDiv .k_sharing .k_heading {
+    display: block;
+    font-weight: bold;
+}
+div.kimbiaDiv ul.k_socialLink {
+    padding-left: 1.5em;
+}
+div.kimbiaDiv a.k_socialLink, div.kimbiaDiv ul.k_socialLink li {
+    font-size: 11px;
+    line-height: 16px;
+    padding-bottom: 11px;
+}
+div.kimbiaDiv a.k_socialLink {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: left top;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: #3B5998;
+    display: inline-block;
+    padding: 2px 5px 0 20px;
+    text-decoration: none;
+}
+div.kimbiaDiv div.k_atLinkBlock {
+    color: #6B6B6B;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    padding: 0;
+}
+div.kimbiaDiv div.k_atLinkBlock a.k_shareLabel, div.kimbiaDiv div.k_atLinkBlock a.k_shareLabel:hover, div.kimbiaDiv div.k_atLinkBlock a.k_shareLabel:visited {
+    border: 0 none;
+    cursor: default;
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 4px 0 0;
+    text-decoration: none;
+}
+div.kimbiaDiv a.k_atLink {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: left top;
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    float: left;
+    font-weight: normal;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-indent: 0;
+}
+div.kimbiaDiv span.k_socialIcon {
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin-right: 2px;
+    width: 16px;
+}
+div.kimbiaDiv div.k_atNarrow span.k_socialIcon {
+    margin-right: 0;
+}
+div.kimbiaDiv div.k_atLinkBlock span.k_separator {
+    color: #D2D2D2;
+    display: inline;
+    float: left;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0 2px;
+}
+div.kimbiaDiv div.k_atNarrow a.k_atLink {
+    text-indent: 0;
+}
+div.kimbiaDiv div.k_atNarrow span.k_separator {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+div.kimbiaDiv div.k_shareThisFormBlock {
+    margin: 13px auto;
+    position: relative;
+    width: 395px;
+}
+div.kimbiaDiv div.k_shareThisFormBlock.k_atNarrow {
+    width: 180px;
+}
+div.kimbiaDiv div.k_snippetRevealer {
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+    width: 340px;
+}
+div.kimbiaDiv .k_atNarrow div.k_snippetRevealer {
+    width: 180px;
+}
+div.kimbiaDiv a.k_embedThisFormButton {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) #A2A2A2;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11.9px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 1px auto;
+    padding: 0 18px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+div.kimbiaDiv a.k_closeSnippet {
+    background: url("./img/btn_close_round.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    clear: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+div.kimbiaDiv div.k_snippetDoor {
+    display: block;
+    height: 22px;
+    left: -20px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 381px;
+    z-index: 2;
+}
+div.kimbiaDiv .k_atNarrow div.k_snippetDoor {
+    width: 220px;
+}
+div.kimbiaDiv input.k_snippet {
+    border: 1px solid #C1C1C1;
+    left: 0;
+    margin: 1px;
+    position: relative;
+    width: 315px;
+}
+div.kimbiaDiv .k_atNarrow input.k_snippet {
+    width: 155px;
+}
+div.kimbiaDiv div.k_tally {
+    clear: both;
+    float: none;
+    margin-top: 2.25em;
+}
+div.kimbiaDiv .k_tally.k_grey table.k_table td {
+    color: #D1D1D1;
+}
+div.kimbiaDiv .k_tally.k_grey table.k_table td.k_total {
+    border-color: #D1D1D1;
+}
+div.kimbiaDiv div.k_numberGroup {
+    margin-left: 0;
+}
+div.kimbiaDiv span.k_numberFee {
+    display: inline;
+    font-size: 0.9em;
+    margin-left: 0.5em;
+}
+div.kimbiaDiv div.k_sectionCommitmentSetter label {
+    font-weight: bold;
+}
+div.kimbiaDiv div.k_sectionCommitmentSetter span.fieldCaption {
+    margin-left: 0;
+}
+div.kimbiaDiv.one_col label {
+    clear: both;
+}
+div.kimbiaDiv.one_col span.fieldCaption {
+    clear: right;
+    display: block;
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col input.k_number, div.kimbiaDiv.two_col input.k_text, div.kimbiaDiv.two_col input.k_money, div.kimbiaDiv.two_col select.k_select {
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-left: 0;
+    max-width: 17em;
+    width: 17em;
+}
+div.kimbiaDiv.two_col input.k_number, div.kimbiaDiv input.k_number {
+    clear: none;
+    margin-left: 0;
+    max-width: 3.6em;
+    width: 3.6em;
+}
+div.kimbiaDiv.two_col div.k_numberGroup {
+    margin-left: 150px;
+}
+div.kimbiaDiv.two_col div.inputGroup.acknowledge {
+    position: relative;
+}
+div.kimbiaDiv.two_col textarea.k_textarea {
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col textarea.acknowledge.k_textarea {
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col div.inputGroup.k_rbGroup span.fieldCaption.k_number {
+    clear: right;
+    display: block;
+    margin-left: 146px;
+}
+div.kimbiaDiv.two_col span.fieldCaption.apply {
+    margin-bottom: 1.5em;
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col div.k_rbGroup label.k_nonChoice, div.kimbiaDiv.two_col span.fieldCaption.k_nonChoice, div.kimbiaDiv.two_col label.k_nonChoice {
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col label.k_nonChoice {
+    clear: right;
+    float: none;
+    margin-left: 146px;
+}
+div.kimbiaDiv.two_col label {
+    margin-top: 0;
+    padding-bottom: 1px;
+    font-size: 1.125em;
+    font-weight: 600;
+}
+div.kimbiaDiv.two_col label.k_radioCB span.fieldCaption {
+	font-weight: normal;
+    margin-left: 0;
+}
+div.kimbiaDiv.two_col div.inputGroup {
+    clear: both;
+}
+div.kimbiaDiv.two_col label {
+    clear: left;
+    float: left;
+    width: 144px;
+}
+div.kimbiaDiv.two_col label.long, div.kimbiaDiv.two_col label.k_required.long, div.kimbiaDiv.two_col label.k_required.acknowledge, div.kimbiaDiv.two_col label.textareaInput {
+    float: none;
+    width: auto;
+}
+div.kimbiaDiv.two_col label.groupLabel {
+    clear: both;
+    float: none;
+    width: auto;
+}
+div.kimbiaDiv.two_col div.inputGroup.acknowledge {
+    width: auto;
+}
+div.kimbiaDiv div.k_column {
+    clear: none;
+    float: left;
+    margin-left: 2%;
+}
+div.kimbiaDiv div.k_column.k_colNum0 {
+    margin: 0 10px;
+}
+div.kimbiaDiv.columnsPerPage2 .k_navigationSpan, div.kimbiaDiv.columnsPerPage3 .k_navigationSpan, div.kimbiaDiv.columnsPerPage4 .k_navigationSpan {
+    text-align: center;
+}
+div.kimbiaDiv.columnsPerPage2 .k_buttonBlock, div.kimbiaDiv.columnsPerPage3 .k_buttonBlock, div.kimbiaDiv.columnsPerPage4 .k_buttonBlock {
+    display: table;
+}
+div.kimbiaDiv.columnsPerPage2 div.k_column {
+    width: 48%;
+}
+div.kimbiaDiv.columnsPerPage2 input.k_text, div.kimbiaDiv.columnsPerPage2 input.k_money, div.kimbiaDiv.columnsPerPage2 select.k_select {
+    min-width: 132px;
+    width: 48%;
+}
+div.kimbiaDiv.columnsPerPage3 div.k_column {
+    width: 32%;
+}
+div.kimbiaDiv.columnsPerPage3 input.k_text, div.kimbiaDiv.columnsPerPage3 input.k_money, div.kimbiaDiv.columnsPerPage3 select.k_select {
+    min-width: 132px;
+    width: 46%;
+}
+div.kimbiaDiv.columnsPerPage4 div.k_column {
+    width: 23%;
+}
+div.kimbiaDiv.columnsPerPage4 input.k_text, div.kimbiaDiv.columnsPerPage4 input.k_money, div.kimbiaDiv.columnsPerPage4 select.k_select {
+    min-width: 132px;
+    width: 46%;
+}
+
+
+/* Widgets */
+div.k_AdvSearch label.groupLabel.sectionLabel.k_asHdr {
+    clear: both;
+    float: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 0 0.3em;
+    padding: 0.1em 0 0.5em;
+    width: auto;
+    text-transform: capitalize !important;
+}
+
+
+div.k_fundraisingTeam_default {
+    border: 0px solid #CCCCCC;
+    border-radius: 7px;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.Explicit, p.cstmText, label.wrapable {
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-weight: bold;
+}
+
+/*personal page */
+iframe {
+    width: 100% !important;
+}
+.kcc_commitmentCenterMain {
+    border: 1px solid #AAAAAA;
+    border-radius: 6px;
+    color: #222222;
+    height: 100%;
+    width: 100% !important;
+    padding: 8px;
+    position: relative;
+}
+/*
+div.k_commitment {
+
+}
+
+
+.container:before, .container:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.nav-tabs:before, .nav-pills:before, .nav-tabs:after, .nav-pills:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+div.k_commitment {
+    height: 476px;
+    width: 100%;
+}
+
+div.pure-u-2-3 div.k_commitment {
+    min-width:565px !important;
+    width:100% !important;
+    max-width:565px !important;
+    height: 
+}
+div.pure-u-2-3 div.k_commitment > iframe.commitment {
+    min-width:565px !important;
+}
+/*
+/* Goal */
+div.k_status_default .header .goal {
+    font-size:1.25em;
+    line-height: auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: #66bc29;
+}
+div.k_status_default .header .bar .fill .top {
+    background-color: #7BC143;
+    border-color: #85AB54 #000000 #000000 #85AB54;
+    border-radius: 0px 0 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    height: 8px;
+}
+div.k_status_default .header .bar .fill .bottom {
+    background-color: #7B9E4D;
+    border-color: #719147 #000000 #4F6632 #85AB54;
+    border-radius: 0 0 0 0px;
+    border-style: solid;
+    border-width: 2px 1px 1px;
+    height: 8px;
+}
+
+div.k_status_default {
+    border: 0px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 8px 0;
+    width: 100%;
+}
+
+div.k_fundraisingTeam_default .summaryLabel {
+    font-size: 1.1em;
+    line-height: 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+div.k_fundraisingTeam_default .summaryTotal {
+    background-color: #FFFFFF;
+    border: 0px solid #D1CCCC;
+    border-radius: 6px;
+    color: #66BC29;
+    font-size: 0.9em;
+    line-height: 1;
+    margin-top: 5px;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Raised */
+div.k_status_default .badge .current {
+    border: 0px solid #D1CCC !important;
+    border-radius: 6px;
+    /*font-size: 1.125em; */
+    color: #5F6062;
+}
+
+div.k_status_default .badge .remaining {
+    font-size: 1.125em;
+    background-color: #595959;
+    color: #FFFFFF;
+    border-radius: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding:7px 0;
+    margin: 0 auto;
+}
+
+div.k_status_default .badge .current {
+    background-color: #FFFFFF;
+    border: 0px solid #D1CCCC;
+    color: #4F6632;
+}
+
+/* Adv Search */
+div.k_AdvSearch label.groupLabel.sectionLabel.k_asHdr {
+    clear: both;
+    float: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 0 0.3em;
+    padding: 0.1em 0 0.5em;
+    width: auto;
+    text-align: left;
+}
+
+div.k_AdvSearch {
+    border: 0px solid #CCCCCC;
+    border-radius: 7px;
+    display: block;
+    font-size: 100%;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+div.k_AdvSearch button.k_back {
+    background-color: #E3E3E3;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px auto;
+    text-transform: uppercase;
+}
+
+/* Team List */
+div.k_fundraisingTeamsList_default {
+    border: 1px solid #CCCCCC;
+    border-radius: 0px;
+    padding: 8px;
+    width: 100%;
+}
+
+/* Enter emal */
+div.k_reSendEmail {
+    border: 1px solid #CCCCCC;
+    border-radius: 7px;
+    display: block;
+    font-size: 100%;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+div.k_fundraisingTeam_default {
+    border: 0px solid #CCCCCC;
+    border-radius: 7px;
+    padding: 8px 0;
+    width: 100%;
+}
+
+div.k_AdvSearch {
+    border: 0px solid #CCCCCC;
+    border-radius: 7px;
+    display: block;
+    font-size: 100%;
+    height: auto;
+    margin: 0;
+    padding: 8px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+
+/* Team List */
+
+div.k_fundraisingTeamsList_default .summaryLabel {
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+}
+
+div.k_fundraisingTeamsList_default .name {
+    float: left;
+    font-size: 1.25em;
+    line-height: 2em;
+    text-align: left;
+}
+
+div.k_fundraisingTeamsList_default .captain {
+    clear: left;
+    color: #666666;
+    font-size: 1.125em;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.widget{
+    margin: 0 0 10px 0;
+    width: 94%;
+}
+
+#titleBar .titleContainer {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1000px;
+}
+
+div.k_fundraisingTeam_default .scroll {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #CCCCCC;
+    border-image: none;
+    border-style: solid;
+    border-width: 0px 0;
+    max-height: 300px;
+    min-height: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+div.k_fundraisingTeam_default .name {
+    float: left;
+    font-size: 1em;
+    line-height: 1.4em;
+    text-align: left;
+    text-decoration: none;
+}
+
+div.k_fundraisingTeam_default .team a, div.k_fundraisingTeam_default .member a {
+    display: block;
+    overflow: auto;
+    padding: 4px 0px;
+}
+
+/* Participant List */
+div.k_status_default .leaderboard .entries.scrolling {
+    height: 17em;
+    position: relative;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div.k_status_default .leaderboard .entries .entry {
+    width: 100%;
+    padding:10px;
+    color: #555555;
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-size: 1em;
+}
+
+div.k_status_default .leaderboard .label {
+    color: #555;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 5px 5px 5px 0;
+}
+div.k_status_default .leaderboard .what {
+    float: right;
+    font-size: 1em;
+    height: 2em;
+    line-height: 1.7em;
+    text-align: left;
+    padding-right: 20px;
+}
+
+
+
+/*Search for Participant */
+div.tr-page-container {
+    border: 1px solid #EAEAEA;
+    border-radius: 12px;
+    color: #555555;
+}
+
+h2.tr-page-title {
+    margin: 0;
+    padding: 20px;
+}
+
+.search-content {
+    padding: 5px 15px;
+}
+
+div.tr-page-container div.header-container {
+    background-color: #F8F8F8;
+}
+
+div.tr-page-container div.side-bar {
+    float: right;
+    padding: 10px;
+    width: 252px;
+}
+div.tr-page-container div.main-content {
+    float: left;
+    overflow: hidden;
+    width: 600px;
+}
+div.tr-page-container div.section-header {
+    padding-left: 20px;
+}
+div.tr-page-container div.section-sub-header {
+    background-color: #DAD7D0;
+    border-top: 2px solid #A4A19C;
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+div.tr-page-container div.section-sub-header.empty {
+    padding: 7px 0 0;
+}
+div.tr-page-container #entry_page_custom_html {
+    padding: 20px 0 20px 20px;
+}
+
+/*Titel Bar */
+.TitleCol1 {
+    width: 73%;
+}
+.TitleCol2 {
+    width: 26%;
+}
+
+@media screen and (max-width:768px) {
+.TitleCol1 {
+    width: 60%;
+}
+.TitleCol2 {
+    width: 40%;
+}
+}
+
+@media screen and (max-width:640px) {
+.TitleCol1 {
+    width: 100%;
+}
+.TitleCol2 {
+    width: 100%;
+}
+.eventCountdown{
+position: relative;
+margin: 0 auto;
+padding-top:15px;
+}
+}

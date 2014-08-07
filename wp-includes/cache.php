@@ -21,10 +21,10 @@
  * @param int $expire When the cache data should be expired
  * @return bool False if cache key and group already exist, true on success
  */
-function wp_cache_add( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_add($key, $data, $group = '', $expire = 0) {
 	global $wp_object_cache;
 
-	return $wp_object_cache->add( $key, $data, $group, (int) $expire );
+	return $wp_object_cache->add($key, $data, $group, $expire);
 }
 
 /**
@@ -154,17 +154,16 @@ function wp_cache_init() {
  * @param int $expire When to expire the cache contents
  * @return bool False if not exists, true if contents were replaced
  */
-function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_replace($key, $data, $group = '', $expire = 0) {
 	global $wp_object_cache;
 
-	return $wp_object_cache->replace( $key, $data, $group, (int) $expire );
+	return $wp_object_cache->replace($key, $data, $group, $expire);
 }
 
 /**
  * Saves the data to the cache.
  *
- * @since 2.0.0
- *
+ * @since 2.0
  * @uses $wp_object_cache Object Cache Class
  * @see WP_Object_Cache::set()
  *
@@ -174,10 +173,10 @@ function wp_cache_replace( $key, $data, $group = '', $expire = 0 ) {
  * @param int $expire When to expire the cache contents
  * @return bool False on failure, true on success
  */
-function wp_cache_set( $key, $data, $group = '', $expire = 0 ) {
+function wp_cache_set($key, $data, $group = '', $expire = 0) {
 	global $wp_object_cache;
 
-	return $wp_object_cache->set( $key, $data, $group, (int) $expire );
+	return $wp_object_cache->set($key, $data, $group, $expire);
 }
 
 /**
@@ -257,7 +256,7 @@ function wp_cache_reset() {
  *
  * @package WordPress
  * @subpackage Cache
- * @since 2.0.0
+ * @since 2.0
  */
 class WP_Object_Cache {
 
@@ -321,7 +320,7 @@ class WP_Object_Cache {
 	 * @param int $expire When to expire the cache contents
 	 * @return bool False if cache key and group already exist, true on success
 	 */
-	function add( $key, $data, $group = 'default', $expire = 0 ) {
+	function add( $key, $data, $group = 'default', $expire = '' ) {
 		if ( wp_suspend_cache_addition() )
 			return false;
 
@@ -335,7 +334,7 @@ class WP_Object_Cache {
 		if ( $this->_exists( $id, $group ) )
 			return false;
 
-		return $this->set( $key, $data, $group, (int) $expire );
+		return $this->set($key, $data, $group, $expire);
 	}
 
 	/**
@@ -388,24 +387,26 @@ class WP_Object_Cache {
 	/**
 	 * Remove the contents of the cache key in the group
 	 *
-	 * If the cache key does not exist in the group, then nothing will happen.
+	 * If the cache key does not exist in the group and $force parameter is set
+	 * to false, then nothing will happen. The $force parameter is set to false
+	 * by default.
 	 *
 	 * @since 2.0.0
 	 *
 	 * @param int|string $key What the contents in the cache are called
 	 * @param string $group Where the cache contents are grouped
-	 * @param bool $deprecated Deprecated.
-	 *
+	 * @param bool $force Optional. Whether to force the unsetting of the cache
+	 *		key in the group
 	 * @return bool False if the contents weren't deleted and true on success
 	 */
-	function delete( $key, $group = 'default', $deprecated = false ) {
+	function delete($key, $group = 'default', $force = false) {
 		if ( empty( $group ) )
 			$group = 'default';
 
 		if ( $this->multisite && ! isset( $this->global_groups[ $group ] ) )
 			$key = $this->blog_prefix . $key;
 
-		if ( ! $this->_exists( $key, $group ) )
+		if ( ! $force && ! $this->_exists( $key, $group ) )
 			return false;
 
 		unset( $this->cache[$group][$key] );
@@ -508,7 +509,7 @@ class WP_Object_Cache {
 	 * @param int $expire When to expire the cache contents
 	 * @return bool False if not exists, true if contents were replaced
 	 */
-	function replace( $key, $data, $group = 'default', $expire = 0 ) {
+	function replace( $key, $data, $group = 'default', $expire = '' ) {
 		if ( empty( $group ) )
 			$group = 'default';
 
@@ -519,7 +520,7 @@ class WP_Object_Cache {
 		if ( ! $this->_exists( $id, $group ) )
 			return false;
 
-		return $this->set( $key, $data, $group, (int) $expire );
+		return $this->set( $key, $data, $group, $expire );
 	}
 
 	/**
@@ -558,7 +559,7 @@ class WP_Object_Cache {
 	 * @param int $expire Not Used
 	 * @return bool Always returns true
 	 */
-	function set( $key, $data, $group = 'default', $expire = 0 ) {
+	function set($key, $data, $group = 'default', $expire = '') {
 		if ( empty( $group ) )
 			$group = 'default';
 
